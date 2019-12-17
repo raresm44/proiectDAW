@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Afisare articole";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<hr />
+
+@if (TempData.ContainsKey("message"))
+{
+    <h3 class="alert alert-info" role="alert">@ViewBag.message</h3>
+}
+
+@foreach (var article in ViewBag.Articles)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">@article.Title</div>
+        <div class="panel-body">
+            Descriere articol: <div>@article.Description</div>
+            <br />
+            Pret articol: <div>@article.Pret</div>
+            <br />
+            <i class="glyphicon glyphicon-globe"></i> @article.Category.CategoryName
+            <br />
+            Rating articol: <div>@article.Rating</div>
+            <br />
+            Review articol: <div>@article.Review</div>
+            <br />
+            Utlizatorul care a adaugat acest articol: <div>1</div>
+        </div>
+        <div class="panel-footer">
+            <a class="btn btn-sm btn-success" href="/Article/Show/@article.Id">Afisare articol</a>
+        </div>
+    </div>
+    <br />
+}
+
+<br />
+<a class="btn btn-success" href="/Category/Index">Afisare lista categorii</a>
+<br />
+<br />
+<a class="btn btn-info" href="/Article/New">Adauga articol</a>
+<br />
+
+
